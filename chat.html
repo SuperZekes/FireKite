@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> 
+  <link rel="icon" type="image/x-icon" href="/images/icons8-kite-shape-32.png">
+  <script src="script.js"></script>
+</head>
+<title>FireKite | Chat</title>
+
+<body class="bg-gray-100">
+
+  <header class="bg-red-700 p-4 text-white">  
+    <h1 class="text-2xl font-bold">Chat with FireKite</h1>
+  </header>
+
+  <main class="mx-auto max-w-screen-md py-10 px-5">
+
+    <div id="chatbox" class="py-4 space-y-4">
+      <!-- Chat messages will go here --> 
+    </div>
+
+    <div class="flex">
+      <input id="userInput" class="flex-grow mr-2 rounded-lg px-4 py-2 border" type="text" placeholder="Write something...">
+      <button onclick="sendMessage()" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800">Send</button> 
+    </div>
+
+  </main>
+  
+</body>
+</html>
