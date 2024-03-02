@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> 
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/images/icons8-kite-shape-32.png">
-  <script src="script.js"></script>
+  <script src="script.js"></script>  
 </head>
+
 <title>FireKite | Chat</title>
 
 <body class="bg-gray-100">
@@ -16,15 +17,74 @@
   <main class="mx-auto max-w-screen-md py-10 px-5">
 
     <div id="chatbox" class="py-4 space-y-4">
-      FireKite: Hello there! This project is not ready but will be soon.
+      
     </div>
 
     <div class="flex">
       <input id="userInput" class="flex-grow mr-2 rounded-lg px-4 py-2 border" type="text" placeholder="Write something...">
-      <button onclick="sendMessage()" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800">Send</button> 
+      <button onclick="sendMessage()" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800">Send</button>
     </div>
 
   </main>
   
+  <script>
+// Responses object adds responses to the chatbot
+const responses = {
+  "hi": "Hello there!", 
+  "hello": "Hello there!",
+  "hi!": "Hello there! How are you today?",
+  "hello!": "Hello there! How are you today?",
+  "how are you?": "I'm doing great!",
+  "what's your name?": "I'm FireKite!",
+  "how are you": "I'm doing great!",
+  "what's your name": "I'm FireKite!",
+  "i'm good": "That's great to hear!",
+  "i'm great": "Glad to hear it!",
+  "what can you do?": "I'm a ChatBot made by SuperZekes!",
+  "what are your skills?": "Chatting based off of commands and responses",
+  "can you code?": "I don't actually write code myself",
+  "goodbye": "Goodbye!",
+  "bye": "Goodbye!",
+  "goodbye!": "Goodbye!",
+  "bye!": "Goodbye!",
+  "good": "That's great to hear!"
+}
+
+function sendMessage() {
+
+  // Get user input
+  let userInput = document.getElementById("userInput").value;
+  
+  // Create user message
+  let userMessage = document.createElement("div");
+  userMessage.innerHTML = userInput;
+  userMessage.classList.add("text-right", "bg-gray-200", "p-2", "rounded");
+
+  // Create bot message
+  let botMessage = document.createElement("div");
+  
+  // Lookup response 
+  let botResponse;
+  if(responses[userInput.toLowerCase()]) {
+    botResponse = responses[userInput.toLowerCase()];
+  } else {
+    botResponse = "Hmm, I'm not sure how to respond to that yet!";
+  }
+
+  botMessage.innerHTML = botResponse;
+  botMessage.classList.add("text-left", "bg-gray-300", "p-2", "rounded");
+
+  // Append messages
+  let chatbox = document.getElementById("chatbox");
+  chatbox.appendChild(userMessage);
+  chatbox.appendChild(botMessage);
+
+  // Clear input
+  document.getElementById("userInput").value = "";
+
+}
+
+  </script>
+
 </body>
 </html>
